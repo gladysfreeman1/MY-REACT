@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js\react.development.js"></script>
+    <script src="js\react-dom.development.js"></script>
+    <script src="js\babel.min.js"></script>
+
+    <title>MY REACT</title>
+</head>
+<body>
+   <div class="cart">
+    <input type="text" id="my_cart">
+    <button name="Add">Add</button>
+   </div>
+<div id="main"></div>
+
+
+    <script type="text/jsx">
+
+
+        const data =[
+            {id:1,text:"Bread"},
+            {id:2,text:"Toffee"},
+            {id:3,text:"Sugar"},
+        ];
+
+        function App(props){
+            console.log(props)
+            return(
+                <div>
+                    <ul>
+                        <li className="just_text">{props.text}
+                            <button>Delete</button>
+                        </li>
+                        
+                    </ul>
+                </div>
+            );
+        }
+
+        let textList =data.map(i => <App key={i.id} text={i.text} />);
+
+        ReactDOM.render(
+            <React.StrictMode>
+                {textList}
+            </React.StrictMode>, document.getElementById("main"));
+    </script>
+</body>
+</html>
